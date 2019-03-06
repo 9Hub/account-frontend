@@ -1,3 +1,14 @@
+.containerHeader {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(9, 9, 75);
+    color: white;
+}
+
 .logo{
     width: 86px;
+}
+
+.navbar-right {
+    height: 100%;
 }

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule, MatIconModule} from '@angular/material';
+import { MatButtonModule, MatIconModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,10 +19,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { HttpClientModule }    from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatChipsModule} from '@angular/material/chips';
-import { FormLoginComponent} from './login/form-login/form-login.component'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatChipsModule } from '@angular/material/chips';
+import { FormLoginComponent } from './login/form-login/form-login.component'
 import { FormRegisterComponent } from './login/form-register/form-register.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { FormRegisterComponent } from './login/form-register/form-register.compo
     MatFormFieldModule,
     MatButtonModule,
     MatChipsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]
