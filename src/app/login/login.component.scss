@@ -1,0 +1,15 @@
+.container-main{
+    display: flex;
+    flex-direction: row;
+}
+    .content-text{
+        flex-basis: auto;
+        flex-basis: 50%;
+        margin-top: 5%;
+        margin-left: 5%;
+    }
+        
+    .item{
+        margin-top: 8%;
+        margin-left: 7%;
+    }

@@ -1,0 +1,18 @@
+<form [formGroup]="resgisterAccount" (ngSubmit)="onSubmit()" class="container">
+  <mat-form-field >
+    <input matInput placeholder="Email"  formControlName="email">
+  </mat-form-field>
+  <mat-form-field >
+    <input matInput placeholder="First name"  formControlName="first_name">
+  </mat-form-field>
+  <mat-form-field >
+    <input matInput placeholder="Last name"  formControlName="last_name">
+  </mat-form-field>
+  <mat-form-field >
+    <input matInput placeholder="Password"  formControlName="password">
+  </mat-form-field>
+  <mat-form-field >
+  <input matInput placeholder="Phone"  formControlName="cel">
+  </mat-form-field>
+  <button mat-button type="submit" class="buttton-submit" mat-raised-button color="primary">Register</button>
+</form>

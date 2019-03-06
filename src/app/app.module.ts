@@ -11,12 +11,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
+import { MatTabsModule } from '@angular/material/tabs';
+import { LoginService } from './service/service-login/login.service';
+
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
+import { HttpClientModule }    from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatChipsModule} from '@angular/material/chips';
+import { FormLoginComponent} from './login/form-login/form-login.component'
+import { FormRegisterComponent } from './login/form-register/form-register.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     MenuHomeComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    FormLoginComponent,
+    FormRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -25,9 +40,17 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     MatMenuModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTabsModule,
+    MatInputModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatChipsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
