@@ -1,3 +1,10 @@
+/**
+ *Documentation:
+  the component returns a selector, a templateurl and the stylesurl
+  in the function create Forms validate the email fields, password obtained by the io,
+  olso in the function onSubmit data is printed.
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../../service/service-login/login.service';
@@ -30,7 +37,8 @@ export class FormLoginComponent implements OnInit {
         console.log("Dato incorecto!!!");
       }else{
         alert("usuario valido!")
-        console.log(JSON.stringify(user.token));        
+        
+        console.log(JSON.stringify(user.token));
       }
     },Error => console.log(Error)
     );

@@ -12,21 +12,28 @@ import { LoginService } from './service/service-login/login.service';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS }    from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
 import { FormLoginComponent} from './login/form-login/form-login.component'
-import { from } from 'rxjs';
 import { FormRegisterComponent } from './login/form-register/form-register.component';
+import { HomeComponent } from './home/home.component';
+import { Page404Component } from './page404/page404.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatIconModule} from '@angular/material/icon';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     FormLoginComponent,
-    FormRegisterComponent
+    FormRegisterComponent,
+    HomeComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,
@@ -40,8 +47,11 @@ import { FormRegisterComponent } from './login/form-register/form-register.compo
     MatButtonModule,
     MatChipsModule,
     HttpClientModule,
-    
+    MatToolbarModule,
+    MatTreeModule,
+    MatIconModule
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   providers: [LoginService],
   bootstrap: [AppComponent]
 })

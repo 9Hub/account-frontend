@@ -1,3 +1,8 @@
+/*
+  Documentation:
+  El componente se apoya en jasmine y karma para el testeo de funciones.
+*/
+
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginComponent } from './login.component';
