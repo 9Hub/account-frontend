@@ -1,34 +1,18 @@
 <div class="containerHeader">
-    <button mat-icon-button  class="logo" routerLink="/home">
+    <button mat-icon-button class="logo" routerLink="/home">
       <mat-icon>account_box</mat-icon>Account
     </button>
 
-    <div class="navbar-right">
-      <button mat-button [matMenuTriggerFor]="menu">Product</button>
+    <div class="menu-home-header">
+      <button mat-button >Product</button>
       
-      <button mat-button [matMenuTriggerFor]="menu">Pricing</button>
-      <!-- <mat-menu #menu="matMenu">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu> -->
+      <button mat-button >Pricing</button>
       
-      <button mat-button [matMenuTriggerFor]="menu">Resources</button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu>
+      <button mat-button >Resources</button>
       
-      <button mat-button [matMenuTriggerFor]="menu">Blog</button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu>
+      <button mat-button >Blog</button>
       
-      <button mat-button [matMenuTriggerFor]="menu">Suport</button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu>
+      <button mat-button >Suport</button>
       
       <button mat-icon-button >
         <mat-icon>search</mat-icon>
