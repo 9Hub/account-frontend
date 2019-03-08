@@ -1,0 +1,17 @@
+.buttons {
+    display: flex;
+    justify-content: center;
+    background: #6b4fbb;
+    color: #fff;
+
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+button{
+    display: inline-block;
+    width: 45px;
+    font-size: 26px;
+}
+

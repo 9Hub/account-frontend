@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule, MatIconModule } from '@angular/material';
+import { MatButtonModule} from '@angular/material';
+import { MatIconModule} from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,11 +24,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatChipsModule } from '@angular/material/chips';
 import { FormLoginComponent } from './login/form-login/form-login.component'
 import { FormRegisterComponent } from './login/form-register/form-register.component';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 
 import { Page404Component } from './page404/page404.component';
-import {MatTreeModule} from '@angular/material/tree';
+import { MatTreeModule } from '@angular/material/tree';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     FormLoginComponent,
     FormRegisterComponent,
     HomeComponent,
-    Page404Component
+    Page404Component,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
