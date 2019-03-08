@@ -12,9 +12,10 @@ import { LoginService } from './service/service-login/login.service';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
-import { HttpClientModule,HTTP_INTERCEPTORS }    from '@angular/common/http';
+import { HttpClientModule }    from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
+
 import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
 import { FormLoginComponent} from './login/form-login/form-login.component'
@@ -49,10 +50,11 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     HttpClientModule,
     MatToolbarModule,
     MatTreeModule,
-    MatIconModule
+    MatIconModule,
+    
   ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   providers: [LoginService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

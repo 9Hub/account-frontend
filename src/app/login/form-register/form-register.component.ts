@@ -26,7 +26,7 @@ export class FormRegisterComponent implements OnInit {
     this.setCreateForm();
   }
 
-  setCreateForm():FormGroup{
+  setCreateForm():any{
     this.resgisterAccount = this.fb.group({
       email:['',Validators.required],
       first_name:['',Validators.required],
@@ -34,20 +34,19 @@ export class FormRegisterComponent implements OnInit {
       password:['',Validators.required],
       cel:['',Validators.required],
     });
-    return this.resgisterAccount;
   }
 
   onSubmit(){
     console.log(this.resgisterAccount.value);
-    this.service.accountRegister(this.resgisterAccount.value).subscribe(newAccount=>{
-      if (this.resgisterAccount.invalid) {
-        console.log("Dato invalido!!");
-      }else{
-        alert("registered user");
-        console.log(JSON.stringify(newAccount));
-      }
-    },Error =>console.log(Error)
-    )
+    // this.service.accountRegister(this.resgisterAccount.value).subscribe(newAccount=>{
+    //   if (this.resgisterAccount.invalid) {
+    //     console.log("Dato invalido!!");
+    //   }else{
+    //     alert("registered user");
+    //     console.log(JSON.stringify(newAccount));
+    //   }
+    // },Error =>console.log(Error)
+    // )
   }
     
 }

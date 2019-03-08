@@ -26,22 +26,22 @@ export class FormLoginComponent implements OnInit {
 
   createForm(){
     this.loginForm = this.fb.group({
-      email:['',Validators.required],
-      password:['',Validators.required]  
+      email:['',Validators.required, Validators.email],
+      password:['',Validators.required, Validators.minLength(4)]  
    })
-  } 
+  }
+
   onSubmit(){
-    console.log(this.loginForm.value);
-    this.service.login(this.loginForm.value).subscribe( user =>{
-      if (this.loginForm.invalid) {
-        console.log("Dato incorecto!!!");
-      }else{
-        alert("usuario valido!")
+    // this.service.login(this.loginForm.value).subscribe( user =>{
+    //   if (this.loginForm.invalid) {
+    //     console.log("Dato incorecto!!!");
+    //   }else{
+    //     alert("usuario valido!")
         
-        console.log(JSON.stringify(user.token));
-      }
-    },Error => console.log(Error)
-    );
+    //     console.log(JSON.stringify(user.token));
+    //   }
+    // },Error => console.log(Error)
+    // );
     
   }
     

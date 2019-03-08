@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {MatToolbarModule} from '@angular/material/toolbar';
 import { Page404Component } from './page404.component';
 
 describe('Page404Component', () => {
@@ -8,7 +8,12 @@ describe('Page404Component', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Page404Component ]
+      declarations: [ 
+        Page404Component
+      ],
+      imports:[
+        MatToolbarModule
+      ]
     })
     .compileComponents();
   }));
