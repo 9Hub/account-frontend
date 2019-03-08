@@ -7,9 +7,35 @@
         flex-basis: 50%;
         margin-top: 5%;
         margin-left: 5%;
+        margin-right: 5%;
     }
         
     .item{
         margin-top: 8%;
-        margin-left: 7%;
+        
     }
+
+.content-loger{
+    margin-top: 8%;
+}    
+    
+.content-buttons-1{    
+    display: flex;    
+    justify-content: space-between;
+
+}   
+    .btn-social{
+        margin-top: 5%;
+        width: 150px;    
+        
+    }   
+
+    .content-buttons-2{
+        display: flex;
+        
+        justify-content: space-between;
+    }    
+
+        .ion-icon {
+            font-size : 16px ;
+        }

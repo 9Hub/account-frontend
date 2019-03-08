@@ -1,3 +1,9 @@
+<!-- 
+  Documentation:
+  Return an email, first_name, last_name, password, phone and submit,
+  input data by iu.
+-->
+
 <form [formGroup]="resgisterAccount" (ngSubmit)="onSubmit()" class="container">
   <mat-form-field >
     <input matInput placeholder="Email"  formControlName="email">
@@ -14,5 +20,5 @@
   <mat-form-field >
   <input matInput placeholder="Phone"  formControlName="cel">
   </mat-form-field>
-  <button mat-button type="submit" class="buttton-submit" mat-raised-button color="primary">Register</button>
+  <button mat-button type="submit" class="buttton-submit" mat-raised-button color="primary" routerLink="/home">Register</button>
 </form>

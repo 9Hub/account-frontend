@@ -25,14 +25,19 @@ import { FormLoginComponent } from './login/form-login/form-login.component'
 import { FormRegisterComponent } from './login/form-register/form-register.component';
 import {MatCardModule} from '@angular/material/card';
 
+import { Page404Component } from './page404/page404.component';
+import {MatTreeModule} from '@angular/material/tree';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 @NgModule({
   declarations: [
     AppComponent,
     MenuHomeComponent,
     LoginComponent,
-    HomeComponent,
     FormLoginComponent,
-    FormRegisterComponent
+    FormRegisterComponent,
+    HomeComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,
@@ -47,12 +52,13 @@ import {MatCardModule} from '@angular/material/card';
     MatCheckboxModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatButtonModule,
     MatChipsModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    MatTreeModule
   ],
   providers: [LoginService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

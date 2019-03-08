@@ -14,7 +14,7 @@ export class LoginService {
       'userid':'1'
     })
   };
-
+  /*
   private  url: string = 'http://localhost:10301/p1/login';
   constructor(private http:HttpClient) { }
 
@@ -24,5 +24,5 @@ export class LoginService {
  
   accountRegister(userRegisterForm):Observable<any>{
     return this.http.post(this.url,userRegisterForm,this.httpOptions);
-  }
+  }*/
 }

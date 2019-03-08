@@ -1,3 +1,9 @@
+/* 
+  Documentation:
+  the component returns a selector, a templateurl and the stylesurl
+*/
+
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
