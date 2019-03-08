@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MatButtonModule} from '@angular/material';
+import { MatIconModule} from '@angular/material/icon';
 import { FooterComponent } from './footer.component';
 
 describe('FooterComponent', () => {
@@ -8,7 +10,13 @@ describe('FooterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FooterComponent ]
+      declarations: [ FooterComponent ],
+
+      imports: [
+        MatButtonModule,
+        MatIconModule,
+      ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     })
     .compileComponents();
   }));
@@ -19,7 +27,4 @@ describe('FooterComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
