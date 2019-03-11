@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    
+    height: 100%;
+}
+
+.item{
+    height: 100%;
+    background: white;
+}
+
+.menu-user{
+    margin-right: 4%;
+    max-height: 30px;
+}
+.ion-icon{
+    font-size: 32px;
+}
+
+.menu{
+    margin-left: 80%;
+}

@@ -2,3 +2,15 @@
     display: flex;
     flex-direction: column; 
 }
+.container-show{
+    display: flex;
+    border-radius: 30px;
+    border-style: solid ;
+    border: rgba(104, 103, 103, 0.404);
+    justify-content: center;
+    box-shadow:  rgb(77, 76, 76);
+}
+
+.text-show{
+    color: red;
+}

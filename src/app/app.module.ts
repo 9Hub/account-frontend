@@ -19,7 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { HttpClientModule }    from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatChipsModule } from '@angular/material/chips';
 import { FormLoginComponent } from './login/form-login/form-login.component'
@@ -30,6 +30,9 @@ import { Page404Component } from './page404/page404.component';
 import { MatTreeModule } from '@angular/material/tree';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FooterComponent } from './footer/footer.component';
+import { AccountComponent } from './account/account.component';
+import { CdkTreeModule } from '@angular/cdk/tree';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +43,8 @@ import { FooterComponent } from './footer/footer.component';
     FormRegisterComponent,
     HomeComponent,
     Page404Component,
-    FooterComponent
+    FooterComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,9 @@ import { FooterComponent } from './footer/footer.component';
     MatChipsModule,
     HttpClientModule,
     MatCardModule,
-    MatTreeModule
+    MatTreeModule,
+    CdkTreeModule,
+    FormsModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent],

@@ -8,6 +8,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../../service/service-login/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-login',
@@ -17,34 +18,39 @@ import { LoginService } from '../../service/service-login/login.service';
 export class FormLoginComponent implements OnInit {
 
   private loginForm:FormGroup;
+  loading = false;
+  show = false;
+  itemCount:string = "Invalid dat";
+  text1:string;
 
-  constructor(private fb: FormBuilder, private service:LoginService) { }
+  constructor(private fb:FormBuilder, private service:LoginService,private router:Router,) { }
+  
 
+  
   ngOnInit() {
-    this.createForm();
-  }
-
-  createForm(){
     this.loginForm = this.fb.group({
-      email:['',Validators.required, Validators.email],
-      password:['',Validators.required, Validators.minLength(4)]  
-   })
+      email:['',Validators.required],
+      password:['',Validators.required]  
+    })
   }
 
   onSubmit(){
-    // this.service.login(this.loginForm.value).subscribe( user =>{
-    //   if (this.loginForm.invalid) {
-    //     console.log("Dato incorecto!!!");
-    //   }else{
-    //     alert("usuario valido!")
-        
-    //     console.log(JSON.stringify(user.token));
-    //   }
-    // },Error => console.log(Error)
-    // );
-    
+    this.service.login(this.loginForm.value).subscribe( 
+      resp => {
+        if(this.loginForm.valid) {
+          this.router.navigateByUrl('/account');
+          console.log(JSON.stringify(resp.token));    
+        }else{
+          this.text1 = resp;
+          this.show = true;
+        }
+      },
+      Error => {
+        this.text1 = Error;
+        this.show = true;
+      },
+    );  
   }
-    
 }
 
 
