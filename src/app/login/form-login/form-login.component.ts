@@ -37,17 +37,12 @@ export class FormLoginComponent implements OnInit {
   onSubmit(){
     this.service.login(this.loginForm.value).subscribe( 
       resp => {
-        if(this.loginForm.valid) {
-          this.router.navigateByUrl('/account');
-          console.log(JSON.stringify(resp.token));    
-        }else{
-          this.text1 = resp;
-          this.show = true;
-        }
+        this.router.navigateByUrl('/account');
+        console.log(JSON.stringify(resp.token));    
       },
-      Error => {
-        this.text1 = Error;
-        this.show = true;
+      error => {
+        this.text1 = "Invalid data"
+        return this.show = true;
       },
     );  
   }
