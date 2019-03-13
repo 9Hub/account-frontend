@@ -6,10 +6,15 @@
 
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="container">
   <mat-form-field class="item">
-    <input matInput placeholder="Email"  formControlName="email">
+    <input matInput type="email" placeholder="Email"  formControlName="email" >
   </mat-form-field>
   <mat-form-field class="item">
-    <input matInput placeholder="Password"  formControlName="password">
+    <input matInput type="password" placeholder="Password"  formControlName="password" >
   </mat-form-field>    
-  <button mat-button type="submit" class="item" mat-raised-button color="primary" routerLink="/home">Sing in</button>
+  <button mat-button type="submit" class="item" mat-raised-button color="primary">Sing in</button>
+<div *ngIf = "show" class="container-show"> 
+  <p class="text-show" >
+    {{ text1 }}
+  </p > 
+</div >
 </form>

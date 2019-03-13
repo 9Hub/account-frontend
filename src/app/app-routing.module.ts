@@ -1,3 +1,4 @@
+import { AccountComponent } from './account/account.component';
 // router module works establishing paging paths, this allows you to move in several pages
 
 import { NgModule } from '@angular/core';
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent},
   { path: 'login', component: LoginComponent },
+  { path: 'account', component: AccountComponent},
   { path:'**', component:Page404Component }
 ];
 

@@ -15,10 +15,15 @@
     <input matInput placeholder="Last name"  formControlName="last_name">
   </mat-form-field>
   <mat-form-field >
-    <input matInput placeholder="Password"  formControlName="password">
+    <input matInput placeholder="Password" type="password" formControlName="password">
   </mat-form-field>
   <mat-form-field >
-  <input matInput placeholder="Phone"  formControlName="cel">
+  <input matInput placeholder="Phone"  formControlName="phone">
   </mat-form-field>
-  <button mat-button type="submit" class="buttton-submit" mat-raised-button color="primary" routerLink="/home">Register</button>
+  <button mat-button type="submit" class="buttton-submit" mat-raised-button color="primary" >Register</button>
+  <div *ngIf = "show" class="container-show"> 
+    <p class="text-show" >
+      {{ itemCount }}
+    </p > 
+  </div >
 </form>

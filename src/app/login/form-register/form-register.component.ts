@@ -10,6 +10,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AccountService } from '../../service/account.service/account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-register',
@@ -17,36 +18,42 @@ import { AccountService } from '../../service/account.service/account.service';
   styleUrls: ['./form-register.component.scss']
 })
 export class FormRegisterComponent implements OnInit {
+  loading = false;
+  show = false;
+  itemCount:string = "Invalid dat";
+  text1:string;
 
   private resgisterAccount:FormGroup;
 
-  constructor(private fb: FormBuilder,private service: AccountService) { }
+  constructor(private fb: FormBuilder,private service: AccountService, private router:Router) { }
 
   ngOnInit() {
-    this.setCreateForm();
-  }
-
-  setCreateForm():any{
     this.resgisterAccount = this.fb.group({
       email:['',Validators.required],
       first_name:['',Validators.required],
       last_name:['',Validators.required],
       password:['',Validators.required],
-      cel:['',Validators.required],
+      phone:['',Validators.required],
     });
   }
 
   onSubmit(){
     console.log(this.resgisterAccount.value);
-    // this.service.accountRegister(this.resgisterAccount.value).subscribe(newAccount=>{
-    //   if (this.resgisterAccount.invalid) {
-    //     console.log("Dato invalido!!");
-    //   }else{
-    //     alert("registered user");
-    //     console.log(JSON.stringify(newAccount));
-    //   }
-    // },Error =>console.log(Error)
-    // )
+    this.service.accountRegister(this.resgisterAccount.value).subscribe(
+      resp => {
+        if(this.resgisterAccount.valid) {
+          this.router.navigateByUrl('/account');
+          console.log(JSON.stringify(resp.token)); 
+        }else{
+          this.text1 = resp;
+          this.show = true;
+        }
+      },
+      Error => {
+        this.text1 = Error;
+        this.show = true;
+      },
+    )
   }
     
 }

@@ -1,42 +1,51 @@
-.container-main{
+.container{
     display: flex;
-    flex-direction: row;
-    margin-block-end: 10%;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 100%;
+    align-items: center;
+    background: rgba(189, 187, 187, 0.425);
 }
-    .content-text{
-        flex-basis: auto;
-        flex-basis: 50%;
-        margin-top: 5%;
-        margin-left: 5%;
-        margin-right: 5%;
-    }
-        
-    .item{
-        margin-top: 8%;
-        
-    }
-
-.content-loger{
-    margin-top: 8%;
-}    
-    
-.content-buttons-1{    
-    display: flex;    
-    justify-content: space-between;
-
-}   
-    .btn-social{
-        margin-top: 5%;
-        width: 150px;    
-        
+.container-login{
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    background: white;
+    width: 370px;
+    height: 271;
+    padding: 1%;
+    border: solid 1px #4140403a;
+    border-radius: 2%;
+}
+.content-buttons-redes-sociales{
+    display: flex;
+    background: rgba(165, 164, 164, 0.295);
+    height: 199;
+    align-items: center;
+    flex-direction: column;
+    justify-items: space-between;
+    margin-top: 1%;
+    margin-bottom: 10%;
+    background: white;
+    padding: 1%;
+    border: solid 1px #4140403a;
+    border-radius: 2%;
+    width:370px;
+}
+.content-butons{
+    display: flex;
+    flex-wrap: wrap;
+    width: 340px;
+    height: 120px;
+}
+    p{
+        width: 100%;
     }   
-
-    .content-buttons-2{
-        display: flex;
-        
-        justify-content: space-between;
-    }    
-
+    .btn-social{
+        width: 163.19px;
+        height: 38px;
+    }
         .ion-icon {
             font-size : 16px ;
         }
