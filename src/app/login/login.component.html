@@ -3,26 +3,19 @@
   return the tables value obtained for app-form-login.
   sign-in registration form and buttons linked to social networks
 -->
-<div class="container-main">
-  <div class="content-text">
-      <h2>Welcome.</h2>
-      <p>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
-        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-      </p>
-  </div> 
-  <div class="content-loger">
-    <mat-tab-group class="item">
-      <mat-tab label="Sign in">
-        <app-form-login></app-form-login>
-      </mat-tab>
-      <mat-tab label="Register">
-        <app-form-register></app-form-register>
-      </mat-tab>
-    </mat-tab-group>
-    <P>"Lorem ipsum dolor sit amet, consectetur</P>
-    <div class="content-buttons-1"> 
+<div class="container">
+  <mat-tab-group class="container-login">
+    <mat-tab label="Sign in">
+      <app-form-login></app-form-login>
+    </mat-tab>
+    <mat-tab label="Register">
+      <app-form-register></app-form-register>
+    </mat-tab>
+  </mat-tab-group>
+
+  <div class="content-buttons-redes-sociales">
+    <P>Sign in with</P>
+    <div class="content-butons">
       <button mat-button mat-raised-button color="" class="btn-social"> 
         <ion-icon name="logo-facebook" src="assets/images/icons/facebook.svg" class="ion-icon"></ion-icon>
           Facebook
@@ -31,8 +24,6 @@
         <ion-icon name="logo-github" class="ion-icon"></ion-icon>
           GitHub
       </button>
-    </div>
-    <div class="content-buttons-2">
       <button mat-button mat-raised-button color="" class="btn-social"> 
         <ion-icon name="logo-google" src="assets/images/icons/google.svg" class="ion-icon"></ion-icon>
           Google
@@ -44,6 +35,3 @@
     </div>
   </div>
 </div>
-
-
-

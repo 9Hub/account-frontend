@@ -43,7 +43,7 @@ export class FormRegisterComponent implements OnInit {
       resp => {
         if(this.resgisterAccount.valid) {
           this.router.navigateByUrl('/account');
-          console.log(JSON.stringify(resp.token));    
+          console.log(JSON.stringify(resp.token)); 
         }else{
           this.text1 = resp;
           this.show = true;
