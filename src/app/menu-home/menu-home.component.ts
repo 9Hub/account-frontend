@@ -9,10 +9,14 @@ import { MenuAccountService } from '../service/menu-account-service/menu-account
 export class MenuHomeComponent implements OnInit {
 
   constructor( private service:MenuAccountService,) { 
-    service.onData((data)=>{
+    this.service.onData((data)=>{
       this.menuHome = !data;
       this.menuAccount = data;
     });
+    if(localStorage.getItem("tokenAccount")!=null){
+      this.menuHome = false;
+      this.menuAccount = true;    
+    }
   }
 
   menuHome: boolean = true;
