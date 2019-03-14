@@ -8,6 +8,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../../service/service-login/login.service';
+import { MenuAccountService } from '../../service/menu-account-service/menu-account-service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -23,9 +24,9 @@ export class FormLoginComponent implements OnInit {
   itemCount:string = "Invalid dat";
   text1:string;
 
-  constructor(private fb:FormBuilder, private service:LoginService,private router:Router,) { }
-  
-
+  constructor(
+    private fb:FormBuilder, private service:LoginService, private router:Router, private menu:MenuAccountService
+  ) { }
   
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -35,10 +36,11 @@ export class FormLoginComponent implements OnInit {
   }
 
   onSubmit(){
+    this.menu.exec();
+    this.router.navigateByUrl('/account');
     this.service.login(this.loginForm.value).subscribe( 
       resp => {
         if(this.loginForm.valid) {
-          this.router.navigateByUrl('/account');
           console.log(JSON.stringify(resp.token));    
         }else{
           this.text1 = resp;
