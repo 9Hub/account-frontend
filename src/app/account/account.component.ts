@@ -1,6 +1,4 @@
-
 import { Component, OnInit } from '@angular/core';
-
 
 @Component({
   selector: 'app-account',
@@ -8,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account.component.scss']
 })
 
-export class AccountComponent{
+export class AccountComponent implements OnInit{
   constructor(){}
+
+  ngOnInit() {
+  }
 }
