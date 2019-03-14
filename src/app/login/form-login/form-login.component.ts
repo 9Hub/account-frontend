@@ -36,10 +36,9 @@ export class FormLoginComponent implements OnInit {
   }
 
   onSubmit(){
-    this.menu.exec();
-    this.router.navigateByUrl('/account');
     this.service.login(this.loginForm.value).subscribe( 
       resp => {
+        this.menu.exec(true);
         this.router.navigateByUrl('/account');
         console.log(JSON.stringify(resp.token));    
       },

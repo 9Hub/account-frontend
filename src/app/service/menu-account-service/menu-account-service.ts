@@ -14,7 +14,7 @@ export class MenuAccountService {
     this.varFunc = func;
   }
 
-  public exec(){
-    this.varFunc("datos enviados");
+  public exec(datoBoolean){
+    this.varFunc(datoBoolean);
   }
 }

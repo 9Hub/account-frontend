@@ -1,6 +1,5 @@
 import { Component, OnInit} from '@angular/core';
 import { MenuAccountService } from '../service/menu-account-service/menu-account-service';
-// import { MenuAccountComponent } from '../menu-account/menu-account.component';
 
 @Component({
   selector: 'app-menu-home',
@@ -10,21 +9,21 @@ import { MenuAccountService } from '../service/menu-account-service/menu-account
 export class MenuHomeComponent implements OnInit {
 
   constructor( private service:MenuAccountService,) { 
-    service.onData((data)=>{this.query_local_storage(data);});
+    service.onData((data)=>{
+      this.menuHome = !data;
+      this.menuAccount = data;
+    });
   }
 
-  // @ViewChild('ref', { read: MenuAccountComponent })
-  // ref: MenuAccountComponent;
+  menuHome: boolean = true;
+  menuAccount: boolean = false;
 
-  // nextQuote(event) {
-  //   this.ref.next();
-  // }
-  
   ngOnInit() {
   }
 
-  query_local_storage(data){
-    // this = this.menu;
-    console.log('desde menu-home se imprime: '+data);
+  signOut = ()=>{
+    this.menuHome = true;
+    this.menuAccount = false;
   }
+
 }

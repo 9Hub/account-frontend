@@ -32,7 +32,6 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FooterComponent } from './footer/footer.component';
 import { AccountComponent } from './account/account.component';
 import { CdkTreeModule } from '@angular/cdk/tree';
-import { MenuAccountComponent } from './menu-account/menu-account.component';
 
 @NgModule({
   declarations: [
@@ -44,8 +43,7 @@ import { MenuAccountComponent } from './menu-account/menu-account.component';
     HomeComponent,
     Page404Component,
     FooterComponent,
-    AccountComponent,
-    MenuAccountComponent
+    AccountComponent
   ],
   imports: [
     BrowserModule,
