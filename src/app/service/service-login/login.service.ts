@@ -1,7 +1,8 @@
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -18,23 +19,27 @@ export class LoginService {
   };
   
   private  url: string = 'http://localhost:10301/p1/login';
+  private token;
 
-  public constructor(private http:HttpClient) { }
+  public constructor(private http:HttpClient,private router:Router) { }
 
   public login(userForm):Observable<any>{
-    return this.http.post<any>(this.url,userForm ,this.httpOptions).pipe(map(user => {
-      if (user && user.token) {
-        localStorage.setItem('currentUser', JSON.stringify(user));
-      }
-      return user;
+    return this.http.post<any>(this.url,userForm ,this.httpOptions).pipe(tap(resp =>{
+      this.token = resp;
+      localStorage.setItem(resp.first_name,JSON.stringify(resp.token));
     }));
   }
  
   accountRegister(userRegisterForm):Observable<any>{
-    return this.http.post(this.url,userRegisterForm,this.httpOptions);
+    return this.http.post(this.url,userRegisterForm,this.httpOptions).pipe(tap(resp =>{
+      this.token = resp;
+      localStorage.setItem(resp.first_name,JSON.stringify(resp.token))
+    }));
   }
 
-  logout() {
-    localStorage.removeItem('currentUser');
+  logOut() {
+    localStorage.removeItem(this.token.first_name);
+    //for default navigate toute home, if is deleted the localStogare name;
+    this.router.navigateByUrl('/');
   }
 }

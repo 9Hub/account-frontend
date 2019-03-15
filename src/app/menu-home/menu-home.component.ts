@@ -1,3 +1,4 @@
+import { LoginService } from './../service/service-login/login.service';
 import { Component, OnInit} from '@angular/core';
 import { MenuAccountService } from '../service/menu-account-service/menu-account-service';
 
@@ -8,7 +9,7 @@ import { MenuAccountService } from '../service/menu-account-service/menu-account
 })
 export class MenuHomeComponent implements OnInit {
 
-  constructor( private service:MenuAccountService,) { 
+  constructor( private service:MenuAccountService,private loginService:LoginService) { 
     this.service.onData((data)=>{
       this.menuHome = !data;
       this.menuAccount = data;
@@ -28,6 +29,8 @@ export class MenuHomeComponent implements OnInit {
   signOut = ()=>{
     this.menuHome = true;
     this.menuAccount = false;
+    this.loginService.logOut();
   }
+  
 
 }

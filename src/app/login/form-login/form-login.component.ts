@@ -1,9 +1,9 @@
 /**
- *Documentation:
+  Documentation:
   the component returns a selector, a templateurl and the stylesurl
   in the function create Forms validate the email fields, password obtained by the io,
   olso in the function onSubmit data is printed.
- */
+**/
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -21,7 +21,7 @@ export class FormLoginComponent implements OnInit {
   loading = false;
   show = false;
   itemCount:string = "Invalid dat";
-  text1:string;
+  message:string;
   private name_token:string;
   private token:string;
 
@@ -35,20 +35,16 @@ export class FormLoginComponent implements OnInit {
     // this.saveToken
   }
 
-  onSubmit(){    this.service.login(this.loginForm.value).subscribe( 
+  onSubmit(){
+    this.service.login(this.loginForm.value).subscribe( 
       resp => {
-        this.router.navigateByUrl('/account');
-        this.token = JSON.stringify(resp.token);
+        this.router.navigateByUrl('/account');        
       },
       error => {
-        this.text1 = "Invalid data"
+        this.message = "Invalid data"
         return this.show = true;
       },
     );  
-  }
-
-  public getTokenLocal():any{
-    return this.token;
   }
 
   private saveToken(name_token,token: string): void {
