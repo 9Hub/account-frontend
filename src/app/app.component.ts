@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'account-frontend';
+  menu_home:boolean;
+  menu_user:boolean;
+
+
+
 }
