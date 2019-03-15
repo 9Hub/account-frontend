@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AccountService } from '../../service/account.service/account.service';
 import { Router } from '@angular/router';
+import { AutenticationService } from '../../service/autentication/autentication.service';
 
 @Component({
   selector: 'app-form-register',
@@ -18,11 +19,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./form-register.component.scss']
 })
 export class FormRegisterComponent implements OnInit {
-  loading = false;
-  show = false;
-  itemCount:string = "Invalid dat";
-  text1:string;
-
+  private loading = false;
+  private show = false;
+  private itemCount:string = "Invalid dat";
+  private text1:string;
+  private token:string;
+  private name_token:string;
   private resgisterAccount:FormGroup;
 
   constructor(private fb: FormBuilder,private service: AccountService, private router:Router) { }
@@ -41,19 +43,24 @@ export class FormRegisterComponent implements OnInit {
     console.log(this.resgisterAccount.value);
     this.service.accountRegister(this.resgisterAccount.value).subscribe(
       resp => {
-        if(this.resgisterAccount.valid) {
-          this.router.navigateByUrl('/account');
-          console.log(JSON.stringify(resp.token)); 
-        }else{
-          this.text1 = resp;
-          this.show = true;
-        }
+        this.token = JSON.stringify(resp.token);
+        
+        console.log(this.name_token);
+        console.log(this.token);
+        this.router.navigateByUrl('/account');
       },
       Error => {
         this.text1 = Error;
         this.show = true;
-      },
+      }
     )
+    console.log(this.name_token);
+    console.log(this.token);
   }
-    
+
+  public getTokenLocal():any{
+    return this.token;
+  }
+
+
 }

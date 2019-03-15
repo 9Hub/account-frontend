@@ -33,7 +33,6 @@ import { FooterComponent } from './footer/footer.component';
 import { AccountComponent } from './account/account.component';
 import { CdkTreeModule } from '@angular/cdk/tree';
 
-
 @NgModule({
   declarations: [
     AppComponent,
