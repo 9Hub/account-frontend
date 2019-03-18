@@ -1,10 +1,15 @@
+import { LoginService } from './../service/service-login/login.service';
 import { Injectable } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Router, CanActivate} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardsService {
+export class AuthGuardsService implements CanActivate{
 
-  constructor() { }
+  constructor(private router: Router, private service:LoginService) { }
+
+  canActivate():boolean{
+    return this.service.getCurrentUser ? true : false;
+  }
 }

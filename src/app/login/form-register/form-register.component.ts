@@ -9,9 +9,9 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AccountService } from '../../service/account.service/account.service';
+import { LoginService } from '../../service/service-login/login.service';
 import { Router } from '@angular/router';
-import { AutenticationService } from '../../service/autentication/autentication.service';
+import { isNullOrUndefined } from "util";
 
 @Component({
   selector: 'app-form-register',
@@ -19,15 +19,13 @@ import { AutenticationService } from '../../service/autentication/autentication.
   styleUrls: ['./form-register.component.scss']
 })
 export class FormRegisterComponent implements OnInit {
-  private loading = false;
+  
   private show = false;
-  private itemCount:string = "Invalid dat";
-  private text1:string;
+  private message:string;
   private token:string;
-  private name_token:string;
   private resgisterAccount:FormGroup;
 
-  constructor(private fb: FormBuilder,private service: AccountService, private router:Router) { }
+  constructor(private fb: FormBuilder,private service: LoginService, private router:Router) { }
 
   ngOnInit() {
     this.resgisterAccount = this.fb.group({
@@ -40,26 +38,18 @@ export class FormRegisterComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.resgisterAccount.value);
     this.service.accountRegister(this.resgisterAccount.value).subscribe(
-      resp => {
-        this.token = JSON.stringify(resp.token);
-        
-        console.log(this.name_token);
-        console.log(this.token);
+      (resp) => {
+        // this.router.navigateByUrl('account');
         this.router.navigateByUrl('/account');
+        // this.router.navigate(['account']);
       },
       Error => {
-        this.text1 = Error;
         this.show = true;
+        this.message = Error.error.message;
       }
     )
-    console.log(this.name_token);
-    console.log(this.token);
-  }
-
-  public getTokenLocal():any{
-    return this.token;
+    
   }
 
 
