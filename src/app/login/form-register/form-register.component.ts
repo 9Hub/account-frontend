@@ -21,9 +21,9 @@ import { isNullOrUndefined } from "util";
 export class FormRegisterComponent implements OnInit {
   
   private show = false;
-  private message:string;
-  private token:string;
-  private resgisterAccount:FormGroup;
+  private message;
+  private token:any;
+  resgisterAccount:FormGroup;
 
   constructor(private fb: FormBuilder,private service: LoginService, private router:Router) { }
 
@@ -33,22 +33,33 @@ export class FormRegisterComponent implements OnInit {
       first_name:['',Validators.required],
       last_name:['',Validators.required],
       password:['',Validators.required],
-      phone:['',Validators.required],
+      phone:['',Validators.required]
     });
   }
 
   onSubmit(){
+    // console.log(this.resgisterAccount.value);
+    
+
+
     this.service.accountRegister(this.resgisterAccount.value).subscribe(
-      (resp) => {
-        // this.router.navigateByUrl('account');
-        this.router.navigateByUrl('/account');
-        // this.router.navigate(['account']);
-      },
-      Error => {
+      () => {
+        this.router.navigateByUrl('account');
+      },Error => {
         this.show = true;
         this.message = Error.error.message;
-      }
-    )
+      });
+
+        // console.log(JSON.stringify(resp)+", mostrando mi anuncio!")})
+
+    // if (this.resgisterAccount.invalid) {
+    //   this.show = true;
+    //   this.message = 'Error';
+    // } else {
+      // console.log(this.resgisterAccount.value);
+      // localStorage.setItem("user1","token:123");
+      // return this.router.navigateByUrl('/account');
+    
     
   }
 

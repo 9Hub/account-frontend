@@ -19,51 +19,46 @@ export class LoginService {
   };
   
   private url:string= 'http://localhost:10301/p1';
-  private token:any;
+  private token:string;
 
   public constructor(private http:HttpClient,private router:Router) { }
 
-  public login(userForm):Observable<any>{
-    return this.http.post<any>(`${this.url}/login`, userForm, this.httpOptions).pipe(tap(resp =>{
-      if (resp) {
-        //guardamos el token
+  public login(userForm):Observable<any> {
+    return this.http.post<any>(`${this.url}/login`, userForm, this.httpOptions).pipe(tap(
+      resp  => {
+        //save toke
         this.saveToken(resp.first_name,resp.token.session_id);
       }
-    }));
+    ));
   }
  
-  public accountRegister(userRegisterForm):Observable<any>{
-    return this.http.post<any>(`${this.url}/accounts`, userRegisterForm).pipe(tap(resp =>{
-      if (resp) {
-        //save token
-        this.saveToken(resp.first_name,resp.token.session_id);
+  public accountRegister(userRegisterForm):Observable<any> {
+    return this.http.post<any>(`${this.url}/accounts`,userRegisterForm,this.httpOptions).pipe(tap(
+      resp => {
+        //save toke
+        this.saveToken(resp.first_name,"tokem:a001TestExpireDefault");
       }
-    }));
+    ));
   }
 
   logOut() {
-    // localStorage.removeItem(this.token);
-    // localStorage.clear();
-    delete localStorage[this.token];
-    //for default navigate toute home, if is deleted the localStogare name;
+    localStorage.removeItem(this.token);
     this.router.navigateByUrl('/');
+    this.token = '';
   }
 
-  private saveToken(name_token:string,token_id:string):void{
+  private saveToken(name_token:string,token_id:string):void {
     localStorage.setItem(name_token,token_id);
     this.token = name_token;
   }
 
-  private getToken():string{
-    if (!this.token) {
-      this.token = localStorage.getItem("");
-    }
+  public getToken():string {
     return this.token;
   }
 
 
-  getCurrentUser():boolean{    
-    if (!isNullOrUndefined(localStorage.getItem(this.token.first_name))) {
+  getCurrentUser():boolean {    
+    if (!isNullOrUndefined(localStorage.getItem(this.token))) {
       return true;
     }
     this.router.navigate(['/']);
