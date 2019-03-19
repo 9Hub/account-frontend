@@ -35,7 +35,8 @@ export class FormLoginComponent implements OnInit {
     // this.saveToken
   }
 
-  onSubmit(){    this.service.login(this.loginForm.value).subscribe( 
+  onSubmit(){
+    this.service.login(this.loginForm.value).subscribe( 
       resp => {
         this.router.navigateByUrl('/account');
         this.token = JSON.stringify(resp.token);
@@ -64,5 +65,3 @@ export class FormLoginComponent implements OnInit {
   }
 
 }
-
-

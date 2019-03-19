@@ -4,6 +4,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule} from '@angular/material';
 import { MatIconModule} from '@angular/material/icon';
+// import {ScrollDispatchModule} from '@angular/cdk/scrolling';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -63,7 +64,8 @@ import { CdkTreeModule } from '@angular/cdk/tree';
     MatCardModule,
     MatTreeModule,
     CdkTreeModule,
-    FormsModule
+    FormsModule,
+    // ScrollDispatchModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent],
