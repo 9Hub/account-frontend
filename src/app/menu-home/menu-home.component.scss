@@ -1,35 +1,30 @@
 //menu home
-.containerHeader {
+.headerHome{
     display: flex;
     justify-content: space-between;
-    background-color: rgb(9, 9, 75);
-    color: white;
+    position: fixed;
 }
 
-.logo {
-    width: 86px;
+// button{
+//     box-shadow: none;
+// }
+
+button:hover{
+    box-shadow: 0 0 30px cyan;
+    // transition: all 0.8s
+    transition: box-shadow 0.7s linear 0s;
 }
 
-.logo mat-icon {
-    font-size : 30px ;
-    margin-right: 8px
-}
+// button{
+    // transition: all 1s
+// }
 
 //menu account
-.container{
+.headerAccount{
     display: flex;
-    flex-direction: column;
-    
-    height: 100%;
-}
-.menu-user{
-    margin-right: 4%;
-    max-height: 30px;
+    justify-content: space-between;
+    position: fixed;
 }
 .ion-icon{
     font-size: 32px;
-}
-
-.menu{
-    margin-left: 80%;
 }

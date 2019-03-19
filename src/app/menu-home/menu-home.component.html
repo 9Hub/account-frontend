@@ -1,10 +1,10 @@
-<div *ngIf="menuHome" class="containerHeader">
-    <button mat-icon-button class="logo" routerLink="/home">
+<mat-toolbar *ngIf="menuHome" color="primary" class="headerHome">
+    <button mat-button routerLink="/home">
       <mat-icon class="icon-logo">account_box</mat-icon>Account
     </button>
 
     <div class="menu-home-header">
-      <button mat-button >Product</button>
+      <button mat-button class="aqui">Product</button>
       
       <button mat-button >Pricing</button>
       
@@ -14,35 +14,37 @@
       
       <button mat-button >Suport</button>
       
-      <button mat-icon-button >
+      <!-- <button mat-icon-button >
         <mat-icon>search</mat-icon>
-      </button>
+      </button> -->
 
       <button mat-button >Explore</button>
       
       <button mat-button routerLink="/login">Sign in / Register</button>
     </div>
-</div>
+</mat-toolbar>
 
-<mat-toolbar *ngIf="menuAccount" color="primary" class="content">
+<mat-toolbar *ngIf="menuAccount" color="primary" class="headerAccount">
   Account
-  <button mat-button [matMenuTriggerFor]="menu2" class="menu">
-      <ion-icon name="help-circle" class="ion-icon"></ion-icon>
-      <ion-icon name="arrow-dropdown"></ion-icon>
-  </button>
-  <mat-menu #menu2="matMenu">
-    <button mat-menu-item>Support</button>
-    <button mat-menu-item>Call center</button>
-  </mat-menu>
-  <button mat-button [matMenuTriggerFor]="menu" class="menu-user">
-      <ion-icon name="radio-button-off" src="assets/images/icons/user3.svg" class="ion-icon"></ion-icon>
-      <ion-icon name="arrow-dropdown"></ion-icon>
-  </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>User</button>
-    <button mat-menu-item>Set status</button>
-    <button mat-menu-item>Profile</button>
-    <button mat-menu-item>Settings</button>
-    <button mat-menu-item (click)="signOut()" routerLink="/home">Sign out</button>
-  </mat-menu>
+  <div>
+    <button mat-button [matMenuTriggerFor]="menu2">
+        <ion-icon name="help-circle" class="ion-icon"></ion-icon>
+        <ion-icon name="arrow-dropdown"></ion-icon>
+    </button>
+    <mat-menu #menu2="matMenu">
+      <button mat-menu-item>Support</button>
+      <button mat-menu-item>Call center</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="menu">
+        <ion-icon name="radio-button-off" src="assets/images/icons/user3.svg" class="ion-icon"></ion-icon>
+        <ion-icon name="arrow-dropdown"></ion-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>User</button>
+      <button mat-menu-item>Set status</button>
+      <button mat-menu-item>Profile</button>
+      <button mat-menu-item>Settings</button>
+      <button mat-menu-item (click)="signOut()" routerLink="/home">Sign out</button>
+    </mat-menu>
+  </div>
 </mat-toolbar>

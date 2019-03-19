@@ -13,6 +13,9 @@ export class MenuHomeComponent implements OnInit {
     if(localStorage.getItem("tokenAccount")!=null){
       this.menuHome = false;
       this.menuAccount = true;    
+    }else{
+      this.menuHome = true;
+      this.menuAccount = false;    
     }
     this.service.onData((data: boolean)=>{
       this.menuHome = !data;
