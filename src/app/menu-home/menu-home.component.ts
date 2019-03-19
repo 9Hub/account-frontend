@@ -10,15 +10,16 @@ import { LoginService } from './../service/service-login/login.service';
 export class MenuHomeComponent implements OnInit {
   
   private titleUser:string;
+
   constructor( private service:MenuAccountService,private loginService:LoginService) { 
     this.service.onData((data)=>{
       this.menuHome = !data;
       this.menuAccount = data;
+      this.titleUser = this.loginService.getToken();
     });
     if(localStorage.getItem("tokenAccount")!=null){
       this.menuHome = false;
       this.menuAccount = true;    
-      this.titleUser = this.loginService.getToken();
     }
   }
 
@@ -26,7 +27,6 @@ export class MenuHomeComponent implements OnInit {
   menuAccount: boolean = false;
 
   ngOnInit() {
-    
   }
 
   signOut = ()=>{
@@ -34,6 +34,5 @@ export class MenuHomeComponent implements OnInit {
     this.menuAccount = false;
     this.loginService.logOut();
   }
-  
 
 }

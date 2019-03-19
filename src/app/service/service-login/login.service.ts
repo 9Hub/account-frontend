@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { isNullOrUndefined } from "util";
 @Injectable({
   providedIn: 'root'
@@ -53,9 +53,9 @@ export class LoginService {
   }
 
   public getToken():string {
+    //aqui se guarda el token
     return this.token;
   }
-
 
   getCurrentUser():boolean {    
     if (!isNullOrUndefined(localStorage.getItem(this.token))) {

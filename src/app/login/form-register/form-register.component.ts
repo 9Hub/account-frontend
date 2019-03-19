@@ -11,7 +11,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../../service/service-login/login.service';
 import { Router } from '@angular/router';
-import { isNullOrUndefined } from "util";
 
 @Component({
   selector: 'app-form-register',
@@ -38,30 +37,15 @@ export class FormRegisterComponent implements OnInit {
   }
 
   onSubmit(){
-    // console.log(this.resgisterAccount.value);
-    
-
-
     this.service.accountRegister(this.resgisterAccount.value).subscribe(
-      () => {
-        this.router.navigateByUrl('account');
-      },Error => {
+      (resp) => {
+        this.router.navigateByUrl('/account');
+      },
+      Error => {
         this.show = true;
         this.message = Error.error.message;
-      });
-
-        // console.log(JSON.stringify(resp)+", mostrando mi anuncio!")})
-
-    // if (this.resgisterAccount.invalid) {
-    //   this.show = true;
-    //   this.message = 'Error';
-    // } else {
-      // console.log(this.resgisterAccount.value);
-      // localStorage.setItem("user1","token:123");
-      // return this.router.navigateByUrl('/account');
-    
-    
+      }
+    );    
   }
-
 
 }

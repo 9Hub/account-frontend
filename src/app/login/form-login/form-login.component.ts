@@ -33,7 +33,7 @@ export class FormLoginComponent implements OnInit {
 
   onSubmit(){
     this.service.login(this.loginForm.value).subscribe( 
-      () => {
+      (resp) => {
         this.router.navigateByUrl('/account');
       },
       Error => {
