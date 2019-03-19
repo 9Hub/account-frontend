@@ -1,8 +1,9 @@
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-
+import { tap } from 'rxjs/operators';
+import { isNullOrUndefined } from "util";
 @Injectable({
   providedIn: 'root'
 })
@@ -17,24 +18,50 @@ export class LoginService {
     })
   };
   
-  private  url: string = 'http://localhost:10301/p1/login';
+  private url:string= 'http://localhost:10301/p1';
+  private token:string;
 
-  public constructor(private http:HttpClient) { }
+  public constructor(private http:HttpClient,private router:Router) { }
 
-  public login(userForm):Observable<any>{
-    return this.http.post<any>(this.url,userForm ,this.httpOptions).pipe(map(user => {
-      if (user && user.token) {
-        localStorage.setItem('currentUser', JSON.stringify(user));
+  public login(userForm):Observable<any> {
+    return this.http.post<any>(`${this.url}/login`, userForm, this.httpOptions).pipe(tap(
+      resp  => {
+        //save toke
+        this.saveToken(resp.first_name,resp.token.session_id);
       }
-      return user;
-    }));
+    ));
   }
  
-  accountRegister(userRegisterForm):Observable<any>{
-    return this.http.post(this.url,userRegisterForm,this.httpOptions);
+  public accountRegister(userRegisterForm):Observable<any> {
+    return this.http.post<any>(`${this.url}/accounts`,userRegisterForm,this.httpOptions).pipe(tap(
+      resp => {
+        //save toke
+        this.saveToken(resp.first_name,"tokem:a001TestExpireDefault");
+      }
+    ));
   }
 
-  logout() {
-    localStorage.removeItem('currentUser');
+  logOut() {
+    localStorage.removeItem(this.token);
+    this.router.navigateByUrl('/');
+    this.token = '';
+  }
+
+  private saveToken(name_token:string,token_id:string):void {
+    localStorage.setItem(name_token,token_id);
+    this.token = name_token;
+  }
+
+  public getToken():string {
+    //aqui se guarda el token
+    return this.token;
+  }
+
+  getCurrentUser():boolean {    
+    if (!isNullOrUndefined(localStorage.getItem(this.token))) {
+      return true;
+    }
+    this.router.navigate(['/']);
+    return false;
   }
 }

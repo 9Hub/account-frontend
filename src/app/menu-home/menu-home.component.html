@@ -25,7 +25,8 @@
 </div>
 
 <mat-toolbar *ngIf="menuAccount" color="primary" class="content">
-  Account
+  <p>{{titleUser}}</p>
+  
   <button mat-button [matMenuTriggerFor]="menu2" class="menu">
       <ion-icon name="help-circle" class="ion-icon"></ion-icon>
       <ion-icon name="arrow-dropdown"></ion-icon>
@@ -43,6 +44,6 @@
     <button mat-menu-item>Set status</button>
     <button mat-menu-item>Profile</button>
     <button mat-menu-item>Settings</button>
-    <button mat-menu-item (click)="signOut()" routerLink="/home">Sign out</button>
+    <button mat-menu-item (click)="signOut()">Sign out</button>
   </mat-menu>
 </mat-toolbar>

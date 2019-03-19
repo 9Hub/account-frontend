@@ -32,6 +32,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FooterComponent } from './footer/footer.component';
 import { AccountComponent } from './account/account.component';
 import { CdkTreeModule } from '@angular/cdk/tree';
+import { JwtModule } from '@auth0/angular-jwt';
+
 
 @NgModule({
   declarations: [
@@ -63,7 +65,8 @@ import { CdkTreeModule } from '@angular/cdk/tree';
     MatCardModule,
     MatTreeModule,
     CdkTreeModule,
-    FormsModule
+    FormsModule,
+    JwtModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent],

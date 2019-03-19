@@ -20,15 +20,4 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  validToken():any{
-    if (this.formLogin != null) {
-      return this.formLogin.getTokenLocal();
-    }else if(this.formRegister!= null){
-      return this.formRegister
-    }else{
-      return null;
-    }
-  }
-
-
 }
